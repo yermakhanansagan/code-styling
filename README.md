@@ -151,7 +151,7 @@ const emit = defineEmits<Emits>()
 const value = someValue
 const modelValue = ref()
 
-const foo = () = modelValue.value = 'b'
+const foo = () => (modelValue.value = 'b')
 
 function bar() {
     if (false) return
@@ -159,9 +159,9 @@ function bar() {
 }
 
 
-watch(value, () => foo)
+watch(value, () => foo())
 
-onMounted(() => modelValue.value = 'b')
+onMounted(() => (modelValue.value = 'b'))
 </setup>
 ```
 
