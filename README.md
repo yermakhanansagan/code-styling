@@ -17,7 +17,7 @@
 
 * Название файлов
 
-Обычные файлы Vue и папки называем через "-" прим. my-button.vue, single-select
+Обычные файлы Vue и папки называем в snake-case прим. my-button.vue, single-select
 Helper функции называем в camelCase.ts
 
 * Давать понятные названия переменным.
@@ -89,6 +89,13 @@ async function submit() {
 Может работать без return не надо использовать return, использовать в случаях когда код имеет функционал на одну строку прим.
 
 ```javascript
+// Плохо:
+const getUsers = (users) => {
+  return users.value = data
+}
+
+
+// Хорошо:
 const getUsers = (data) => (users.value = data)
 ```
 ## TypeScript
