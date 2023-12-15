@@ -11,13 +11,51 @@
 
 [Тык](https://habr.com/ru/companies/manychat/articles/468953/)
 
+### Naming
+
+* Название файлов
+
+Обычные файлы Vue и папки называем через "-" прим. my-button.vue, 
+
+* Давать понятные названия переменным.
+
+```javasript
+// плохо
+
+const a
+
+// хорошо
+
+const user
+```
+
+* Давать глагольные названия функциям (также можно добавлять префиксы действий get-/set-/map-/merge-).
+
+```javasript
+// Плохо: 
+const filteredUsers = (users) => users.filter(...) // это переменная или функция?
+
+// Хорошо: 
+const filterUsers = (users) => users.filter(...)
+```
+* Типы и классы должны начинаться с большой буквы. Добавление префикса T/I в начале типа в JavaScript, по мне, излишне.
+
+```javascript
+// Плохо:
+type user = {id: string};
+type TUser = {id: string};
+interface IMovie = {id: string};
+
+// Хорошо:
+type User = {id: string};
+```
 
 ## JavaScript
 - Language features
 
 ### Functions
 
-В JavaScript есть два типа объявления функции Function Declaration и Function Expression
+В JavaScript есть два типа объявления функции Function Declaration и Function Expression.
 
 #### Function Declaration
 
@@ -53,6 +91,24 @@ const getUsers = (data) => (users.value = data)
 ## TypeScript
 
 - Typing
+
+### Typing primitives
+
+Не нужно типизировать примитивные типы данных, Typescript сам это сделает.
+
+```typescript
+// Плохо:
+
+const isLoading = ref<boolean>(true)
+const num = ref<number>(0)
+const str = ref<string>('')
+
+// Хорошо:
+
+const isLoading = ref(true)
+const num = ref(0)
+const str = ref('')
+```
 
 ### Any
 
@@ -151,7 +207,7 @@ const emit = defineEmits<Emits>()
 const value = someValue
 const modelValue = ref()
 
-const foo = () => (modelValue.value = 'b')
+const foo = () => modelValue.value = 'b';
 
 function bar() {
     if (false) return
@@ -159,9 +215,9 @@ function bar() {
 }
 
 
-watch(value, () => foo())
+watch(value, () => foo);
 
-onMounted(() => (modelValue.value = 'b'))
+onMounted(() => modelValue.value = 'b');
 </setup>
 ```
 
