@@ -17,7 +17,7 @@
 
 * Название файлов
 
-Обычные файлы Vue и папки называем в snake-case прим. my-button.vue, single-select
+Обычные файлы Vue и папки называем в kebab-case прим. my-button.vue, single-select
 Helper функции называем в camelCase.ts
 
 * Давать понятные названия переменным.
@@ -93,7 +93,6 @@ async function submit() {
 const getUsers = (users) => {
   return users.value = data
 }
-
 
 // Хорошо:
 const getUsers = (data) => (users.value = data)
@@ -229,6 +228,22 @@ watch(value, () => foo);
 
 onMounted(() => modelValue.value = 'b');
 </setup>
+```
+
+## Git
+
+Оформление commit
+
+Плохо:
+```git
+git commit -m "fix"
+git commit -m "refactor"
+git commit -m "some changes"
+```
+
+Хорошо:
+```git
+git commit -m "branch feat/fix/refactor(file): description"
 ```
 
 
